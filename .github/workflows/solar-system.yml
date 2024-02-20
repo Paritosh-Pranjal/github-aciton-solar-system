@@ -40,7 +40,7 @@ jobs:
         
         - name: Archieve Test Result
           uses: actions/upload-artifact@v3
-          if: failure()
+          if: always()
           with:
               name: Mocha-Test-Results
               path: test-results.xml
