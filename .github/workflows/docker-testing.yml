@@ -115,3 +115,10 @@ jobs:
                 ${{ vars.DOCKERHUB_KODEKLOUD_USERNAME }}/solar-system:${{ github.sha }}
             docker container ps 
             docker container ps -a
+
+        - name: Push the docker image
+          uses: docker/build-push-action@v4
+          with:
+            context: .
+            push: true
+            tags: ${{ vars.DOCKERHUB_KODEKLOUD_USERNAME}}/solar-system:${{ github.sha }}
