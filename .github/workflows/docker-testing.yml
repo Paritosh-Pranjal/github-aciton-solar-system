@@ -9,7 +9,8 @@ on:
 env:
     MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
     MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
-    MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}     
+    MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }} 
+    REPO_OWNER: 'paritosh-pranjal'    
 
 jobs:
     unit-testing:
@@ -131,4 +132,4 @@ jobs:
             push: true
             tags: |
                 ${{ vars.DOCKERHUB_KODEKLOUD_USERNAME}}/solar-system:${{ github.sha }}
-                ghcr.io/paritosh-pranjal/solar-system:${{ github.sha }}
+                ghcr.io/${{env.REPO_OWNER}}/solar-system:${{ github.sha }}
