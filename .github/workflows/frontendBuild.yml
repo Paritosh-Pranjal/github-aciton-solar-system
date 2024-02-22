@@ -1,10 +1,12 @@
 name: Frontend Build
+run-name: Frontend Build ${{ github.actor}}
 on:
     push:
         branches: 
             - main
         paths: 
-            - "frontend/**/*"
+            - "frontend/**"
+            - ".github/workflows/frontendBuild.yml"
         
     pull_request: 
         types: [opened,synchronize,closed]
