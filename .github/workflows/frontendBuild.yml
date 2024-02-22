@@ -4,7 +4,7 @@ on:
         branches: 
             - main
         paths: 
-            - "frontend/**"
+            - "frontend/*"
         
     pull_request: 
         types: [opened,synchronize,reopened]
@@ -14,9 +14,6 @@ jobs:
         name: FE testing
         runs-on: ubuntu-latest
         timeout-minutes: 3
-        defaults:
-            run:
-                working-directory: frontend
         
         steps:
         - name: Checkout Repository
