@@ -7,7 +7,7 @@ on:
             - "frontend/**"
         
     pull_request: 
-        types: [opened,closed]
+        types: [opened,synchronize,closed]
     
 jobs:
     frontend:

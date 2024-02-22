@@ -7,7 +7,7 @@ on:
             - "backend/**"
         
     pull_request: 
-        types: [opened,closed]
+        types: [opened,synchronize,closed]
     
 jobs:
     backend:
