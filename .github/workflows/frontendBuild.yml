@@ -1,0 +1,33 @@
+name: Frontend Build
+run-name: Frontend Build ${{ github.actor}}
+on:
+    push:
+        branches: 
+            - main
+        paths: 
+            - "frontend/**"
+            - ".github/workflows/frontendBuild.yml"
+        
+    pull_request: 
+        types: [opened,synchronize,closed]
+        branches: 
+            - main
+        paths: 
+            - "frontend/**"
+    
+jobs:
+    frontend:
+        name: FE testing
+        runs-on: ubuntu-latest
+        timeout-minutes: 3
+        
+        steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v3
+
+        - name: Checking the frontend changes
+          run: echo "Frontend changes done"
+
+          
+        
+              
