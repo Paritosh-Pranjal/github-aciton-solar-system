@@ -10,7 +10,7 @@ on:
         types: [opened,synchronize,reopened]
     
 jobs:
-    frontend:
+    backend:
         name: BE testing
         runs-on: ubuntu-latest
         timeout-minutes: 3
