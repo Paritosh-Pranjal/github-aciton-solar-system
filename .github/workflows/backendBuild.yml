@@ -1,0 +1,27 @@
+name: Backend Build
+on:
+    push:
+        branches: 
+            - main
+        paths: 
+            - "backend/**"
+        
+    pull_request: 
+        types: [opened,synchronize,reopened]
+    
+jobs:
+    frontend:
+        name: BE testing
+        runs-on: ubuntu-latest
+        timeout-minutes: 3
+
+        steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v3
+
+        - name: Checking the backend changes
+          run: echo "backend changes done"
+
+          
+        
+              
