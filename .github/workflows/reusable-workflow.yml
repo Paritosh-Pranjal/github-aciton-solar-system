@@ -6,9 +6,17 @@ on:
       MY_SECRET:
         description: 'A secret value'
         required: true
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.output_example.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.output_example.outputs.output2 }}
 
 
 jobs:
+
   reuse-deploy:
     runs-on: ubuntu-latest
 
@@ -23,7 +31,21 @@ jobs:
         
     - name: Check the file system
       run: ls -a 
-      
+
     - name: Deploy
       run: |
           echo "Deploying with MY_SECRET: ${{ secrets.MY_SECRET }}"
+
+  output_example:
+      name: Generate output
+      runs-on: ubuntu-latest
+
+      outputs:
+        output1: ${{ steps.step1.outputs.firstword }}
+        output2: ${{ steps.step2.outputs.secondword }}
+
+      steps:
+        - id: step1
+          run: echo "firstword=hello" >> $GITHUB_OUTPUT
+        - id: step2
+          run: echo "secondword=world" >> $GITHUB_OUTPUT
