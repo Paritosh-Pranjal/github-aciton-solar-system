@@ -6,6 +6,7 @@ on:
       MY_SECRET:
         description: 'A secret value'
         required: true
+        
     outputs:
       firstword:
         description: "The first output string"
@@ -46,6 +47,6 @@ jobs:
 
       steps:
         - id: step1
-          run: echo "firstword=hello" >> $GITHUB_OUTPUT
+          run: echo "firstword=hello"
         - id: step2
-          run: echo "secondword=world" >> $GITHUB_OUTPUT
+          run: echo "secondword=world"
