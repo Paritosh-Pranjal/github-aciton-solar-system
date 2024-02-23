@@ -2,11 +2,16 @@ name: Reusable Workflow
 
 on:
   workflow_call:
+    secrets:
+      MY_SECRET:
+        description: 'A secret value'
+        required: true
 
 
 jobs:
   reuse-deploy:
     runs-on: ubuntu-latest
+
 
     steps:
     - name: Checkout Repository
@@ -18,3 +23,7 @@ jobs:
         
     - name: Check the file system
       run: ls -a 
+      
+    - name: Deploy
+      run: |
+          echo "Deploying with MY_SECRET: ${{ secrets.MY_SECRET }}"
