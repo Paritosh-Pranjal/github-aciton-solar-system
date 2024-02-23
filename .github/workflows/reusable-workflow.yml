@@ -1,0 +1,20 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+
+
+jobs:
+  reuse-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        echo "Building the project..."
+        
+    - name: Check the file system
+      run: ls -a 
